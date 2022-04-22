@@ -10,14 +10,11 @@ import SwiftUI
 public struct ChartView: View {
     
     let setup: SetupChart
-    @Binding var touchLocation: CGPoint
-    @Binding var hide: Bool
-    @Binding var point: Int
     
     public var body: some View {
         GeometryReader { geometry in
             
-            PriceLabelView(setup: setup, geometry: geometry, touchLocation: $touchLocation, hide: $hide, point: $point)
+            ChartPriceLabelView(setup: setup, geometry: geometry)
             
             Path { path in
                 for index in setup.data.indices {
@@ -44,6 +41,6 @@ public struct ChartView: View {
 
 struct Chart_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(setup: SetupChart(), touchLocation: .constant(.zero), hide: .constant(false), point: .constant(1))
+        ChartView(setup: SetupChart())
     }
 }

@@ -1,6 +1,6 @@
 //
 //  CheesyChart.swift
-//  Chart
+//
 //
 //  Created by Adrian Suthold on 20.04.22.
 //
@@ -25,13 +25,8 @@ public struct CheesyChart: View {
             ChartView(setup: setup)
                 .frame(width: setup.chartWidth, height: setup.chartHeight)
                 .background(ChartBackgroundView(setup: setup))
-                .overlay(
-                    ChartYAxiesStatsView(hide: setup.hideChartYAxiesView)
-                        .padding(.horizontal, 4)
-                    , alignment: .leading
-                )
                 .gesture(
-                    DragGesture()
+                    DragGesture(minimumDistance: 0)
                         .onChanged({ value in
                             vm.hide = true
                             vm.touchLocation = value.location

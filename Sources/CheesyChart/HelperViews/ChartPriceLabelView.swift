@@ -1,5 +1,5 @@
 //
-//  PriceLabelView.swift
+//  ChartPriceLabelView.swift
 //  
 //
 //  Created by Adrian Suthold on 21.04.22.

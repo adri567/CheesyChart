@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  PriceLabelView.swift
 //  
 //
 //  Created by Adrian Suthold on 22.04.22.

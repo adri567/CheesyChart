@@ -17,6 +17,7 @@ public class SetupChart {
     public var showChartHeader: Bool
     public var chartHeaderFontColor: Color
     public var chartHeaderColor: Color
+    public var showHeaderImage: Bool
     
     public var chartWidth: Double
     public var chartHeight: Double
@@ -24,6 +25,7 @@ public class SetupChart {
     public var chartBackground: Background
     public var chartBackgroundColor: Color
     public var chartBackgroundDividerColor: Color
+    public var showYAxiesStats: Bool
     
     public var chartLineColor: Color
     public var chartLineWidth: CGFloat
@@ -39,7 +41,6 @@ public class SetupChart {
     public var chartPriceLabelYAxies: CGFloat
     public var chartPriceLabelCornerRadius: CGFloat
     
-    public var hideChartYAxiesView: Bool
     public let maxY: Double
     public let minY: Double
     
@@ -49,11 +50,13 @@ public class SetupChart {
         showChartHeader: Bool = false,
         chartHeaderFontColor: Color = .black,
         chartHeaderColor: Color = .clear,
+        showHeaderImage: Bool = false,
         chartWidth: Double = UIScreen.main.bounds.width,
         chartHeight: Double = 200,
-        chartBackground: Background = .cb1,
+        chartBackground: Background = .none,
         chartBackgroundColor: Color = .white,
         chartBackgroundDividerColor: Color = Color(UIColor.lightGray).opacity(0.2),
+        showYAxiesStats: Bool = false,
         chartLineColor: Color = .blue,
         chartLineWidth: CGFloat = 2,
         lineShadow1: Color = .clear,
@@ -64,19 +67,20 @@ public class SetupChart {
         chartPriceLabelFontColor: Color = .black,
         chartPriceIndicatorColor: Color = Color(UIColor.lightGray),
         chartPriceLabelYAxies: CGFloat = 40.0,
-        chartPriceLabelCornerRadius: CGFloat = 5,
-        hideChartYAxiesView: Bool = false
+        chartPriceLabelCornerRadius: CGFloat = 5
     ) {
         self.name = name
         self.data = data
         self.showChartHeader = showChartHeader
         self.chartHeaderFontColor = chartHeaderFontColor
         self.chartHeaderColor = chartHeaderColor
+        self.showHeaderImage = showHeaderImage
         self.chartWidth = chartWidth
         self.chartHeight = chartHeight
         self.chartBackground = chartBackground
         self.chartBackgroundColor = chartBackgroundColor
         self.chartBackgroundDividerColor = chartBackgroundDividerColor
+        self.showYAxiesStats = showYAxiesStats
         self.chartLineColor = chartLineColor
         self.chartLineWidth = chartLineWidth
         self.lineShadow1 = lineShadow1
@@ -88,7 +92,6 @@ public class SetupChart {
         self.chartPriceIndicatorColor = chartPriceIndicatorColor
         self.chartPriceLabelYAxies = chartPriceLabelYAxies
         self.chartPriceLabelCornerRadius = chartPriceLabelCornerRadius
-        self.hideChartYAxiesView = hideChartYAxiesView
         
         maxY = data.max() ?? 0
         minY = data.min() ?? 0

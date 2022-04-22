@@ -26,8 +26,8 @@ class CheesyChartViewModel: CheesyChartViewProtocol, ObservableObject {
     
     // MARK: - Methods
     func calculateBorder(xLocation: CGFloat, geometry: GeometryProxy, textWidth: Double) -> CGFloat {
-        let size = textWidth / 2
-        if touchLocation.x > size && touchLocation.x < geometry.size.width - size {
+        let size = (textWidth / 2) + 5
+        if touchLocation.x > size && touchLocation.x < geometry.size.width - (size - 1) {
             return touchLocation.x
         }
         return touchLocation.x > geometry.size.width - size ? geometry.size.width - size : size

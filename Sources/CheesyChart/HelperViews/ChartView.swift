@@ -1,5 +1,5 @@
 //
-//  Chart.swift
+//  ChartView.swift
 //  
 //
 //  Created by Adrian Suthold on 21.04.22.
@@ -9,8 +9,10 @@ import SwiftUI
 
 public struct ChartView: View {
     
+    // MARK: - Properties
     let setup: SetupChart
     
+    // MARK: - Body
     public var body: some View {
         GeometryReader { geometry in
             

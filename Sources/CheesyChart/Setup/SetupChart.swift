@@ -14,6 +14,8 @@ public class SetupChart {
     public var name: String
     public var data: [Double]
     public var image: UIImage?
+    public var useCustomHeader: Bool
+    public var customHeader: AnyView
     
     public var showChartHeader: Bool
     public var chartHeaderFontColor: Color
@@ -56,6 +58,8 @@ public class SetupChart {
         name: String = "",
         data: [Double] = [],
         image: UIImage? = UIImage(systemName: "bitcoinsign.circle.fill"),
+        useCustomHeader: Bool = false,
+        customHeader: AnyView = AnyView(EmptyView()),
         
         showChartHeader: Bool = false,
         chartHeaderFontColor: Color = .black,
@@ -94,6 +98,8 @@ public class SetupChart {
         self.name = name
         self.data = data
         self.image = image
+        self.useCustomHeader = useCustomHeader
+        self.customHeader = customHeader
         
         self.showChartHeader = showChartHeader
         self.chartHeaderFontColor = chartHeaderFontColor

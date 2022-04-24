@@ -20,27 +20,27 @@ public struct ChartPriceLabelView: View {
     // MARK: - Body
     public var body: some View {
         Text(setup.data[vm.point].asCurrencyWithTwoDecimals())
-                .padding(4)
-                .background(
-                    GeometryReader { textGeometry in
-                        makeView(geometry: textGeometry)
-                    }
-                )
-                .background(setup.chartPriceLabelColor)
-                .cornerRadius(setup.chartPriceLabelCornerRadius)
-                .position(x: vm.calculateBorder(xLocation: vm.touchLocation.x, geometry: geometry, textWidth: textWidth), y: setup.chartPriceLabelYAxies)
-                .foregroundColor(setup.chartPriceLabelFontColor)
-                .font(.caption)
-                .background(
-                    Rectangle()
-                        .fill(setup.chartPriceIndicatorColor)
-                        .frame(width: 1, height: geometry.size.height)
-                    // TODO: - Change Location to show the label correctly
-                        .position(x: vm.touchLocation.x - 2, y: geometry.size.height / 2)
-                )
-                .opacity(vm.hide ? 1 : 0)
-                .shadow(color: setup.chartPriceLabelShadow, radius: 5, x: 0.0, y: 0)
-                .zIndex(1)
+            .padding(4)
+            .font(.caption)
+            .foregroundColor(setup.chartPriceLabelFontColor)
+            .background(
+                GeometryReader { textGeometry in
+                    makeView(geometry: textGeometry)
+                }
+            )
+            .background(setup.chartPriceLabelColor)
+            .cornerRadius(setup.chartPriceLabelCornerRadius)
+            .position(x: vm.calculateBorder(xLocation: vm.touchLocation.x, geometry: geometry, textWidth: textWidth), y: setup.chartPriceLabelYAxies)
+            .background(
+                Rectangle()
+                    .fill(setup.chartPriceIndicatorColor)
+                    .frame(width: 1, height: geometry.size.height)
+                // TODO: - Change Location to show the label correctly
+                    .position(x: vm.touchLocation.x - 2, y: geometry.size.height / 2)
+            )
+            .opacity(vm.hide ? 1 : 0)
+            .shadow(color: setup.chartPriceLabelShadow, radius: 5, x: 0.0, y: 0)
+            .zIndex(1)
     }
     
     private func makeView(geometry: GeometryProxy) -> some View {

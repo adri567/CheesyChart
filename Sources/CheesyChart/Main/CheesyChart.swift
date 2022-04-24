@@ -12,7 +12,7 @@ public struct CheesyChart: View {
     
     // MARK: - Properties
     @StateObject var vm: CheesyChartViewModel = CheesyChartViewModel()
-    private let dCount: Int // Count of total data
+    private let dCount: Int // Count of total price  data
     var setup: SetupChart
     
     public init(setup: SetupChart) {
@@ -24,7 +24,11 @@ public struct CheesyChart: View {
     // MARK: - Body
     public var body: some View {
         VStack(spacing: 0) {
-            ChartHeader(setup: setup)
+            if setup.useCustomHeader {
+                setup.customHeader
+            } else {
+                ChartHeader(setup: setup)
+            }
             ChartView(setup: setup)
                 .frame(width: setup.chartWidth, height: setup.chartHeight)
                 .background(ChartBackgroundView(setup: setup))

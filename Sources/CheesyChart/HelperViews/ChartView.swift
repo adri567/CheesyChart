@@ -26,13 +26,11 @@ public struct ChartView: View {
     // MARK: - Body
     public var body: some View {
         GeometryReader { geometry in
-            
             ChartPriceLabelView(setup: setup, geometry: geometry)
-            
             Path { path in
                 for index in setup.data.indices {
                     let xPosition: CGFloat = (index == 0) ? 0.0 : geometry.size.width / CGFloat(setup.data.count) * CGFloat(index + 1)
-//                    let xPosition = geometry.size.width / CGFloat(setup.data.count) * CGFloat(index + 1)
+                    
                     let yAxis = setup.maxY - setup.minY
                     
                     let yPosition = (1 - CGFloat((setup.data[index] - setup.minY) / yAxis)) * geometry.size.height

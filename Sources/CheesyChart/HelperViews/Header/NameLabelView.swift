@@ -12,6 +12,7 @@ struct NameLabelView: View {
     // MARK: - Properties
     var setup: SetupChart
     
+    // MARK: - Body
     var body: some View {
         Text(setup.name)
             .foregroundColor(setup.chartHeaderFontColor)

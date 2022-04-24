@@ -19,6 +19,7 @@ protocol CheesyChartViewProtocol {
 class CheesyChartViewModel: CheesyChartViewProtocol, ObservableObject {
     
     // MARK: - Published Properties
+    @Published var animationPercentage: CGFloat = 0
     @Published var touchLocation: CGPoint = .zero
     @Published var hide: Bool = false
     @Published var point: Int = 0

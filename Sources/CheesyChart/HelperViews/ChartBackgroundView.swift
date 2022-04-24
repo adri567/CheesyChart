@@ -22,15 +22,6 @@ struct ChartBackgroundView: View {
     // MARK: - Properties
     let setup: SetupChart
     
-    private var minY: Double = 0.0
-    private var maxY: Double = 0.0
-    
-    init(setup: SetupChart) {
-        self.setup = setup
-        minY = setup.minY
-        maxY = setup.maxY
-    }
-    
     // MARK: - Body
     var body: some View {
         VStack {
@@ -47,70 +38,48 @@ struct ChartBackgroundView: View {
                 background4
             case .cb5:
                 background5
-            default:
-                background1
             }
         }
         .background(setup.chartBackgroundColor)
         .frame(height: 200)
-        
     }
     
-    var background0: some View {
+    private var background0: some View {
         Rectangle()
             .fill(setup.chartBackgroundColor)
     }
     
-    var background1: some View {
+    private var background1: some View {
         VStack(alignment: .leading, spacing: 0) {
             horizontalDivider
-            chartYAxiesText(setup.maxY)
             Spacer()
             horizontalDivider
-                .overlay(
-                    chartYAxiesText((setup.maxY + setup.minY) / 2)
-                    ,alignment: .leading
-                )
-            Spacer()
-            chartYAxiesText(setup.minY)
-            horizontalDivider
-        }
-        
-    }
-    
-    var background2: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            horizontalDivider
-            chartYAxiesText(maxY)
             Spacer()
             horizontalDivider
-            chartYAxiesText((((maxY + minY) / 2) + maxY) / 2)
-            Spacer()
-            horizontalDivider
-                .overlay(
-                    chartYAxiesText((((maxY + minY) / 2) + minY) / 2)
-                    , alignment: .leading
-                )
-            Spacer()
-            extendBackground
         }
     }
     
-    var background3: some View {
+    private var background2: some View {
         VStack(alignment: .leading, spacing: 0) {
             horizontalDivider
-            chartYAxiesText(maxY)
             Spacer()
             horizontalDivider
-            chartYAxiesText((((maxY + minY) / 2) + maxY) / 2)
             Spacer()
             horizontalDivider
-                .overlay(
-                    chartYAxiesText((((maxY + minY) / 2) + minY) / 2)
-                    , alignment: .leading
-                )
             Spacer()
-            extendBackground
+            horizontalDivider
+        }
+    }
+    
+    private var background3: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            horizontalDivider
+            Spacer()
+            horizontalDivider
+            Spacer()
+            horizontalDivider
+            Spacer()
+            horizontalDivider
         }
         .overlay(
             HStack {
@@ -123,26 +92,13 @@ struct ChartBackgroundView: View {
             }
         )
     }
-
-    var extendBackground: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            chartYAxiesText(minY)
-            horizontalDivider
-        }
-    }
     
-    var background4: some View {
+    private var background4: some View {
         VStack(alignment: .leading, spacing: 0) {
             horizontalDivider
-            chartYAxiesText(setup.maxY)
             Spacer()
             horizontalDivider
-                .overlay(
-                    chartYAxiesText((setup.maxY + setup.minY) / 2)
-                    ,alignment: .leading
-                )
             Spacer()
-            chartYAxiesText(setup.minY)
             horizontalDivider
         }
         .overlay(
@@ -158,19 +114,13 @@ struct ChartBackgroundView: View {
         )
     }
     
-    var background5: some View {
+    private var background5: some View {
         VStack {
             VStack(alignment: .leading, spacing: 0) {
                 horizontalDivider
-                chartYAxiesText(setup.maxY)
                 Spacer()
                 horizontalDivider
-                    .overlay(
-                        chartYAxiesText((setup.maxY + setup.minY) / 2)
-                        ,alignment: .leading
-                    )
                 Spacer()
-                chartYAxiesText(setup.minY)
                 horizontalDivider
             }
         }
@@ -198,20 +148,7 @@ struct ChartBackgroundView: View {
             .frame(width: 1)
             .foregroundColor(setup.chartBackgroundDividerColor)
     }
-    
-    @ViewBuilder
-    private func chartYAxiesText(_ price: Double) -> some View {
-        if setup.showYAxiesStats {
-            Text("\(price)")
-                .padding(.leading, 4)
-                .font(.footnote)
-        } else {
-            EmptyView()
-        }
-    }
 }
-
-
 
 struct ChartBackgroundView_Previews: PreviewProvider {
     static var previews: some View {

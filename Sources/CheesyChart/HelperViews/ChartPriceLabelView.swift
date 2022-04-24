@@ -19,7 +19,7 @@ public struct ChartPriceLabelView: View {
     
     // MARK: - Body
     public var body: some View {
-            Text(vm.point > 0 && vm.point <= setup.data.count - 1 ? "\(setup.data[vm.point])" : "")
+        Text(setup.data[vm.point].asCurrencyWithTwoDecimals())
                 .padding(4)
                 .background(
                     GeometryReader { textGeometry in
@@ -35,9 +35,11 @@ public struct ChartPriceLabelView: View {
                     Rectangle()
                         .fill(setup.chartPriceIndicatorColor)
                         .frame(width: 1, height: geometry.size.height)
-                        .position(x: vm.touchLocation.x, y: geometry.size.height / 2)
+                    // TODO: - Change Location to show the label correctly
+                        .position(x: vm.touchLocation.x - 2, y: geometry.size.height / 2)
                 )
                 .opacity(vm.hide ? 1 : 0)
+                .shadow(color: setup.chartPriceLabelShadow, radius: 5, x: 0.0, y: 0)
                 .zIndex(1)
     }
     

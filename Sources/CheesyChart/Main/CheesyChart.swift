@@ -12,10 +12,13 @@ public struct CheesyChart: View {
     
     // MARK: - Properties
     @StateObject var vm: CheesyChartViewModel = CheesyChartViewModel()
+    private let dCount: Int // Count of total data
     var setup: SetupChart
     
     public init(setup: SetupChart) {
         self.setup = setup
+        
+        dCount = setup.data.count
     }
     
     // MARK: - Body
@@ -25,18 +28,30 @@ public struct CheesyChart: View {
             ChartView(setup: setup)
                 .frame(width: setup.chartWidth, height: setup.chartHeight)
                 .background(ChartBackgroundView(setup: setup))
+                .overlay(
+                    ChartYAxiesStatsView(setup: setup)
+                    ,alignment: .leading
+                )
                 .gesture(
                     DragGesture(minimumDistance: 0)
                         .onChanged({ value in
                             vm.hide = true
                             vm.touchLocation = value.location
-                            let value = UIScreen.main.bounds.size.width / CGFloat(setup.data.count)
-                            vm.point = Int(vm.touchLocation.x / value)
+                            let value = UIScreen.main.bounds.size.width / CGFloat(dCount)
+                            // dCount - 1 is necessary, because we need one less than the total data count to not get a Index Out Of Range
+                            vm.point = Int(vm.touchLocation.x / value) > dCount - 1 ? dCount - 1 : Int(vm.touchLocation.x / value)
                         })
                         .onEnded({ value in
                             vm.hide.toggle()
                         })
                 )
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + setup.startAnimationAfterAppear) {
+                        withAnimation(.linear(duration: setup.chartAnimationDuration)) {
+                            vm.animationPercentage = 1.0
+                        }
+                    }
+                }
         }
         .environmentObject(vm)
     }

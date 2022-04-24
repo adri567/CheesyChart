@@ -17,9 +17,11 @@ struct ChartHeader: View {
         if setup.showChartHeader {
             HStack {
                 if setup.showHeaderImage {
-                    Image(systemName: "dollarsign.circle.fill")
-                        .resizable()
-                        .frame(width: 25, height: 25)
+                    if let image = setup.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
                 }
                 NameLabelView(setup: setup)
                 Spacer()

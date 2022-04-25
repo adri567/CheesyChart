@@ -19,6 +19,7 @@ public struct ChartView: View {
     init(setup: SetupChart) {
         self.setup = setup
         
+        /// Changes the line color depends on share prices
         let priceChange = (setup.data.last ?? 0) - (setup.data.first ?? 0)
         lineColor = priceChange >= 0 ? setup.chartLineColorOnHigh : setup.lineChartColorOnLow
     }
@@ -27,6 +28,7 @@ public struct ChartView: View {
     public var body: some View {
         GeometryReader { geometry in
             ChartPriceLabelView(setup: setup, geometry: geometry)
+            
             Path { path in
                 for index in setup.data.indices {
                     let xPosition: CGFloat = (index == 0) ? 0.0 : geometry.size.width / CGFloat(setup.data.count) * CGFloat(index + 1)

@@ -9,10 +9,10 @@ import SwiftUI
 
 protocol CheesyChartViewProtocol {
     
-    ///
-    /// - Parameter xLocation:
-    /// - Parameter geoetry:
-    /// - Returns:
+    /// Calculates the border that the PriceLabel has a distance to the leading and trailing border
+    /// - Parameter xLocation: X Location of the draged label
+    /// - Parameter geoetry: Geometry of the chart where the label is located
+    /// - Returns: Returns the distance to the border
     func calculateBorder(xLocation: CGFloat, geometry: GeometryProxy, textWidth: Double) -> CGFloat
 }
 
@@ -23,7 +23,6 @@ class CheesyChartViewModel: CheesyChartViewProtocol, ObservableObject {
     @Published var touchLocation: CGPoint = .zero
     @Published var hide: Bool = false
     @Published var point: Int = 0
-    
     
     // MARK: - Methods
     func calculateBorder(xLocation: CGFloat, geometry: GeometryProxy, textWidth: Double) -> CGFloat {

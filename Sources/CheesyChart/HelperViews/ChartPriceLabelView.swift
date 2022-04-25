@@ -13,13 +13,13 @@ public struct ChartPriceLabelView: View {
     @EnvironmentObject var vm: CheesyChartViewModel
     
     // MARK: - Properties
+    @State private var textWidth: Double = 0.0
     let setup: SetupChart
     let geometry: GeometryProxy
-    @State private var textWidth: Double = 0.0
     
     // MARK: - Body
     public var body: some View {
-        Text(setup.data[vm.point].asCurrencyWithTwoDecimals())
+        Text(checkInput())
             .padding(4)
             .font(.caption)
             .foregroundColor(setup.chartPriceLabelFontColor)
@@ -30,19 +30,30 @@ public struct ChartPriceLabelView: View {
             )
             .background(setup.chartPriceLabelColor)
             .cornerRadius(setup.chartPriceLabelCornerRadius)
-            .position(x: vm.calculateBorder(xLocation: vm.touchLocation.x, geometry: geometry, textWidth: textWidth), y: setup.chartPriceLabelYAxies)
+            .position(
+                x: vm.calculateBorder(xLocation: vm.touchLocation.x, geometry: geometry, textWidth: textWidth),
+                y: setup.chartPriceLabelYAxies
+            )
+            .shadow(color: setup.chartPriceLabelShadow, radius: 5, x: 0.0, y: 0)
             .background(
                 Rectangle()
                     .fill(setup.chartPriceIndicatorColor)
                     .frame(width: 1, height: geometry.size.height)
-                // TODO: - Change Location to show the label correctly
-                    .position(x: vm.touchLocation.x - 2, y: geometry.size.height / 2)
+                    .position(x: vm.touchLocation.x, y: geometry.size.height / 2)
             )
             .opacity(vm.hide ? 1 : 0)
-            .shadow(color: setup.chartPriceLabelShadow, radius: 5, x: 0.0, y: 0)
             .zIndex(1)
     }
     
+    /// Only nesessary if we are using a custom view with a binding to track the draged label price. This is important if the user creates multiple buttons to switch different chart data. It could happen that some data has more chart data. If so the app crashes. To avoid it we are checking if the vm.point is higher that the chart data count. If yes, we asign a blank String otherwise the normal price.
+    /// - Returns: Formatted price as a String
+    private func checkInput() -> String {
+        return vm.point > setup.data.count ? "" : setup.data[vm.point].asCurrencyWithTwoDecimals()
+    }
+    
+    /// Gives use the geometry of a text. In this case we are asign the geometry.size.width to our textWidth variable to get the width for further using in the calculateBorder() method.
+    /// - Parameter geometry: Geometry of the Text
+    /// - Returns: Rectangle View that is in the background of our Text
     private func makeView(geometry: GeometryProxy) -> some View {
         DispatchQueue.main.async {
             self.textWidth = geometry.size.width
@@ -53,6 +64,6 @@ public struct ChartPriceLabelView: View {
 
 //struct PriceLabelView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PriceLabelView(setup: SetupChart(), geometry: .constant(), touchLocation: <#Binding<CGPoint>#>, hide: <#Binding<Bool>#>, point: <#Binding<Int>#>)
+//        PriceLabelView(setup: SetupChart(), geometry: .constant(), touchLocation: Binding<CGPoint>, hide: Binding<Bool>, point: Binding<Int>)
 //    }
 //}

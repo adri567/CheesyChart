@@ -12,12 +12,20 @@ public struct CheesyChart: View {
     
     // MARK: - Properties
     @StateObject var vm: CheesyChartViewModel = CheesyChartViewModel()
+    @Binding private var tapPoint: Int
     private let dCount: Int // Count of total price  data
     var setup: SetupChart
-    
+
     public init(setup: SetupChart) {
         self.setup = setup
-        
+
+        dCount = setup.data.count
+        _tapPoint = .constant(-1)
+    }
+    
+    public init(setup: SetupChart, tapPoint: Binding<Int>) {
+        self.setup = setup
+        _tapPoint = tapPoint
         dCount = setup.data.count
     }
     
@@ -38,13 +46,7 @@ public struct CheesyChart: View {
                 )
                 .gesture(
                     DragGesture(minimumDistance: 0)
-                        .onChanged({ value in
-                            vm.hide = true
-                            vm.touchLocation = value.location
-                            let value = UIScreen.main.bounds.size.width / CGFloat(dCount)
-                            // dCount - 1 is necessary, because we need one less than the total data count to not get a Index Out Of Range
-                            vm.point = Int(vm.touchLocation.x / value) > dCount - 1 ? dCount - 1 : Int(vm.touchLocation.x / value)
-                        })
+                        .onChanged(handleGesture)
                         .onEnded({ value in
                             vm.hide.toggle()
                         })
@@ -58,6 +60,20 @@ public struct CheesyChart: View {
                 }
         }
         .environmentObject(vm)
+    }
+    
+    private func handleGesture(value: DragGesture.Value) {
+        vm.hide = true
+        vm.touchLocation = value.location
+        /// Calculates the value for the price depens on the fingers drag position of the chart
+        let value = UIScreen.main.bounds.size.width / CGFloat(dCount)
+        /// dCount - 1 is necessary, because we need one less than the total data count to not get a Index Out Of Range.
+        vm.point = Int(vm.touchLocation.x / value) > dCount - 1 ? dCount - 1 : Int(vm.touchLocation.x / value)
+        
+        /// If we are using a custom header and we are passing a tapPoint binding, we assign vm.point to tapPoint to show the current drag price externally
+        if tapPoint != -1 && setup.useCustomHeader == true {
+            tapPoint = vm.point
+        }
     }
 }
 
@@ -234,7 +250,7 @@ struct CheesyChart_Previews: PreviewProvider {
                 57154.57504790339,
                 57336.828870254896
                 
-            ]))
+            ]), tapPoint: .constant(3))
         } else {
             // Fallback on earlier versions
         }

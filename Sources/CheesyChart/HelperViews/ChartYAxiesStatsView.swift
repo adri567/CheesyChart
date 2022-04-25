@@ -120,7 +120,7 @@ struct ChartYAxiesStatsView: View {
     private func chartYAxiesText(_ price: Double) -> some View {
         if setup.showYAxiesStats {
             Text(price.formattedWithAbbreviations())
-                .foregroundColor(Color.black)
+                .foregroundColor(setup.yAxiesStatsColor)
                 .padding(.leading, 4)
                 .font(.footnote)
         } else {

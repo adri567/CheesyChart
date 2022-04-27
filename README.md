@@ -18,6 +18,8 @@ CheesyChart requires at least iOS 13 and Xcode 11.
 
 3️⃣ Choose CheesyChart from the list of options ➤ Add Package
 
-This was easy, or? Now you can use CheesyChart in your project! 📈
+This was easy, or? Now you can use CheesyChart in your project! 📈📉
+
+### Here are some examples
 
 

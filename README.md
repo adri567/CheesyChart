@@ -6,9 +6,9 @@ Looking for an easy to use and fully customizable charting solution written in S
 
 So whether you want to create a simple chart or a more complex one, CheesyChart has you covered!
 
-###
 
-### Installation 🛠
+
+## Installation 🛠
 
 CheesyChart requires at least iOS 13 and Xcode 11.
 
@@ -20,7 +20,7 @@ CheesyChart requires at least iOS 13 and Xcode 11.
 
 This was easy, or? Now you can use CheesyChart in your project! 📈📉
 
-### Here are some examples
+## Here are some examples
 
 ## Usage
 <p align="right"> Copy this code ⬇️<p>

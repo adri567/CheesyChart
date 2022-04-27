@@ -12,31 +12,32 @@ public struct CheesyChart: View {
     
     // MARK: - Properties
     @StateObject var vm: CheesyChartViewModel = CheesyChartViewModel()
-    @Binding private var tapPoint: Int
+    @Binding private var tapPoint: Int?
     private let dCount: Int // Count of total price  data
     var setup: SetupChart
-
+    
+    /// Standart init if you don't want to use the custom header
     public init(setup: SetupChart) {
         self.setup = setup
-
+        
         dCount = setup.data.count
-        _tapPoint = .constant(-1)
+        _tapPoint = Binding.constant(nil)
     }
     
-    public init(setup: SetupChart, tapPoint: Binding<Int>) {
+    /// Prefered init if you are using a custom header. In this init you can pass a binding to track the price outside of the package while draging with the finger on the chart
+    public init(setup: SetupChart, tapPoint: Binding<Int?>?) {
         self.setup = setup
-        _tapPoint = tapPoint
+        _tapPoint = tapPoint ?? Binding.constant(nil)
         dCount = setup.data.count
     }
     
     // MARK: - Body
     public var body: some View {
         VStack(spacing: 0) {
-            if setup.useCustomHeader {
-                setup.customHeader
-            } else {
+            if setup.showChartHeader {
                 ChartHeader(setup: setup)
             }
+            
             ChartView(setup: setup)
                 .frame(width: setup.chartWidth, height: setup.chartHeight)
                 .background(ChartBackgroundView(setup: setup))
@@ -71,7 +72,7 @@ public struct CheesyChart: View {
         vm.point = Int(vm.touchLocation.x / value) > dCount - 1 ? dCount - 1 : Int(vm.touchLocation.x / value)
         
         /// If we are using a custom header and we are passing a tapPoint binding, we assign vm.point to tapPoint to show the current drag price externally
-        if tapPoint != -1 && setup.useCustomHeader == true {
+        if tapPoint != nil {
             tapPoint = vm.point
         }
     }

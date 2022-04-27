@@ -14,8 +14,6 @@ public class SetupChart {
     public var name: String
     public var data: [Double]
     public var image: UIImage?
-    public var useCustomHeader: Bool
-    public var customHeader: AnyView
     
     public var showChartHeader: Bool
     public var chartHeaderFontColor: Color
@@ -39,10 +37,10 @@ public class SetupChart {
     public var lineChartColorOnLow: Color
     public var chartLineWidth: CGFloat
     
-    public var lineShadow1: Color
-    public var lineShadow2: Color
-    public var lineShadow3: Color
-    public var lineShadow4: Color
+    public var showShadow1: Bool
+    public var showShadow2: Bool
+    public var showShadow3: Bool
+    public var showShadow4: Bool
     
     public var chartPriceLabelColor: Color
     public var chartPriceLabelFontColor: Color
@@ -58,8 +56,6 @@ public class SetupChart {
         name: String = "",
         data: [Double] = [],
         image: UIImage? = UIImage(systemName: "bitcoinsign.circle.fill"),
-        useCustomHeader: Bool = false,
-        customHeader: AnyView = AnyView(EmptyView()),
         
         showChartHeader: Bool = false,
         chartHeaderFontColor: Color = .black,
@@ -83,10 +79,10 @@ public class SetupChart {
         lineChartColorOnLow: Color = .red,
         chartLineWidth: CGFloat = 2,
         
-        lineShadow1: Color = .clear,
-        lineShadow2: Color = .clear,
-        lineShadow3: Color = .clear,
-        lineShadow4: Color = .clear,
+        showShadow1: Bool = false,
+        showShadow2: Bool = false,
+        showShadow3: Bool = false,
+        showShadow4: Bool = false,
         
         chartPriceLabelColor: Color = .clear,
         chartPriceLabelFontColor: Color = .black,
@@ -98,8 +94,6 @@ public class SetupChart {
         self.name = name
         self.data = data
         self.image = image
-        self.useCustomHeader = useCustomHeader
-        self.customHeader = customHeader
         
         self.showChartHeader = showChartHeader
         self.chartHeaderFontColor = chartHeaderFontColor
@@ -123,10 +117,10 @@ public class SetupChart {
         self.lineChartColorOnLow = lineChartColorOnLow
         self.chartLineWidth = chartLineWidth
         
-        self.lineShadow1 = lineShadow1
-        self.lineShadow2 = lineShadow2
-        self.lineShadow3 = lineShadow3
-        self.lineShadow4 = lineShadow4
+        self.showShadow1 = showShadow1
+        self.showShadow2 = showShadow2
+        self.showShadow3 = showShadow3
+        self.showShadow4 = showShadow4
         
         self.chartPriceLabelColor = chartPriceLabelColor
         self.chartPriceLabelFontColor = chartPriceLabelFontColor

@@ -45,11 +45,15 @@ public struct ChartView: View {
             }
             .trim(from: 0, to: setup.animateChart ? vm.animationPercentage : 1) // Animates from 0 to 1
             .stroke(lineColor, style: StrokeStyle(lineWidth: setup.chartLineWidth, lineCap: .round, lineJoin: .round))
-            .shadow(color: setup.lineShadow1, radius: 10, x: 0.0, y: 10)
-            .shadow(color: setup.lineShadow2.opacity(0.5), radius: 10, x: 0.0, y: 20)
-            .shadow(color: setup.lineShadow3.opacity(0.2), radius: 10, x: 0.0, y: 30)
-            .shadow(color: setup.lineShadow4.opacity(0.2), radius: 10, x: 0.0, y: 40)
+            .shadow(color: shadowColor(setup.showShadow1, 1), radius: 10, x: 0.0, y: 10)
+            .shadow(color: shadowColor(setup.showShadow2, 0.5), radius: 10, x: 0.0, y: 20)
+            .shadow(color: shadowColor(setup.showShadow3, 0.2), radius: 10, x: 0.0, y: 30)
+            .shadow(color: shadowColor(setup.showShadow4, 0.2), radius: 10, x: 0.0, y: 40)
         }
+    }
+    
+    private func shadowColor(_ show: Bool, _ opacity: Double) -> Color {
+        show ? lineColor.opacity(opacity) : .clear
     }
 }
 

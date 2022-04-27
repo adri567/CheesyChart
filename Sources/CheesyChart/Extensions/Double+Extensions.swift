@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Double+Extension.swift
 //  
 //
 //  Created by Adrian Suthold on 24.04.22.

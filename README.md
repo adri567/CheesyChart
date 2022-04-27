@@ -23,7 +23,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 ### Here are some examples
 
 ## Usage
-<p align="right" style="margin-right: 20px"> Copy this code ⬇️     <p>
+<p align="right"> Copy this code ⬇️<p>
  
 ```swift
   import CheesyChart

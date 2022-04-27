@@ -25,6 +25,6 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 ### Usage
 
 ```swift
-import CheesyChart
+import CheesyChart```
 
 

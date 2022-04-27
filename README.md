@@ -10,7 +10,7 @@ So whether you want to create a simple chart or a more complex one, CheesyChart 
 
 ## Installation 🛠
 
-CheesyChart requires at least iOS 13 and Xcode 11.
+CheesyChart requires iOS 14 and Xcode 11.
 
 1️⃣ In XCode go to `File` ➤ `Add Packages...`
 

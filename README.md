@@ -24,5 +24,6 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 
 ## Usage
 <p align="right"> Copy this code <p>
+ 
 ```swift
-import CheesyChart
+  import CheesyChart

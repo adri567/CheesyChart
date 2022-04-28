@@ -28,7 +28,6 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 <img src="https://user-images.githubusercontent.com/26815443/165816452-2dd5b405-2a4b-4630-a23b-db5a35235937.gif" width="26%"></img>  <img src="https://user-images.githubusercontent.com/26815443/165816470-938d26a0-6950-49c3-951e-793cf3dcb874.gif" width="26%"></img> 
 </p>
 
-###### Big thanks to SwiftfulThinking that I can use his crypto app for the last two examples to show how CheesyChart can be iplemented! 🥳
 
 ## 🪛 Usage
 <p align="right"> Copy this code ⬇️<p>
@@ -36,6 +35,28 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 ```swift
   import CheesyChart
  ```
+ 
+ ´´´swift
+ @State var value: Int? = 0 // You need a @State var if you want to use the tapPoint to show the current price of the stock or coin
+
+ let setup = SetupChart(
+            name: (stock or coin name),
+            data:  (price data),
+            image: UIImage(named: "Image"),
+            chartHeight: 250,
+            animateChart: true,
+            chartBackground: .cb5,
+            chartBackgroundColor: Color(UIColor.systemGroupedBackground).opacity(0.3),
+            showYAxiesStats: true,
+            yAxiesStatsColor: .black,
+            showShadow1: true,
+            showShadow2: true,
+            chartPriceLabelColor: Color(UIColor.systemGroupedBackground).opacity(0.3),
+            chartPriceLabelFontColor: .black
+        )
+ 
+ CheesyChart(setup: setup, tapPoint: $value)
+ 
 
 
 ### All setup possibilities with its standard values 🔥

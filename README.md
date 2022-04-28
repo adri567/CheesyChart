@@ -28,7 +28,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 <img src="https://user-images.githubusercontent.com/26815443/165816452-2dd5b405-2a4b-4630-a23b-db5a35235937.gif" width="26%"></img>  <img src="https://user-images.githubusercontent.com/26815443/165816470-938d26a0-6950-49c3-951e-793cf3dcb874.gif" width="26%"></img> 
 </p>
 
-###### Thank you Nick that you let me use your crypto app for showcase!
+###### Thanks Nick for letting me use your crypto app as a showcase for CheesyChart! 💯
 
 
 ## 🪛 Usage

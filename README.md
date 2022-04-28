@@ -56,7 +56,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
         )
  
  CheesyChart(setup: setup, tapPoint: $value)
-
+```
  
  
 ### All setup possibilities with its standard values 🔥

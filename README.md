@@ -32,7 +32,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
  
 ### Setup options
  
-name: String
+`name: String`
  
 data: [Double]
  

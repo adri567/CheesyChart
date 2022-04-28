@@ -80,7 +80,8 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
             )
  
 CheesyChart(setup: setup)
-
+```
+ 
  
 ### All setup possibilities with its standard values 🔥
 

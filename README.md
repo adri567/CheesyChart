@@ -30,7 +30,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
  ```
 
 
-### All set up possibilities with its standard values 🔥
+### All setup possibilities with its standard values 🔥
 
  ```swift
 name: String = "" // Name of the coin or stock

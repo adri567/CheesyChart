@@ -85,7 +85,7 @@ CheesyChart(setup: setup)
 ```
  
  
-### All setup possibilities with its standard values 🔥
+### All setup possibilities with it's standard values 🔥
 
  ```swift
 name: String = "" // Name of the coin or stock

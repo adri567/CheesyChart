@@ -8,7 +8,7 @@ So whether you want to create a simple chart or a more complex one, CheesyChart 
 
 
 
-## Installation 🛠
+## 🛠 Installation
 
 CheesyChart requires iOS 14 and Xcode 11.
 
@@ -20,9 +20,9 @@ CheesyChart requires iOS 14 and Xcode 11.
 
 This was easy, or? Now you can use CheesyChart in your project! 📈📉
 
-## Here are some examples 📲
+## 📲 Here are some examples
 
-## Usage 🪛
+## 🪛 Usage
 <p align="right"> Copy this code ⬇️<p>
  
 ```swift

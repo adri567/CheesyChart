@@ -37,7 +37,8 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
  ```
  
  ```swift
- @State var value: Int? = 0 // You need a @State var if you want to use the tapPoint to show the current price of the stock or coin
+ /// You need a @State var if you want to use the tapPoint to show the current price of the stock or coin in a extra TextView
+ @State var value: Int? = 0
 
  let setup = SetupChart(
             name: (stock or coin name),

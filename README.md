@@ -28,6 +28,8 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 <img src="https://user-images.githubusercontent.com/26815443/165816452-2dd5b405-2a4b-4630-a23b-db5a35235937.gif" width="26%"></img>  <img src="https://user-images.githubusercontent.com/26815443/165816470-938d26a0-6950-49c3-951e-793cf3dcb874.gif" width="26%"></img> 
 </p>
 
+###### Thank you Nick that you let me use your crypto app for showcase!
+
 
 ## 🪛 Usage
 <p align="right"> Copy this code ⬇️<p>
@@ -145,4 +147,4 @@ chartPriceLabelYAxies: CGFloat = 40.0 // Position of the price label on the y ax
 chartPriceLabelCornerRadius: CGFloat = 5 // Corner radius of the price label
  
 chartPriceLabelShadow: Color = .clear // Shadow of the price label
- 
+

@@ -29,9 +29,10 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
   import CheesyChart
  ```
 
- 
+
 ### Setup options with its standart option
- 
+
+ ```swift
 name: String = ""
  
 data: [Double] = []
@@ -91,3 +92,4 @@ chartPriceLabelYAxies: CGFloat = 40.0
 chartPriceLabelCornerRadius: CGFloat = 5
  
 chartPriceLabelShadow: Color = .clear
+ 

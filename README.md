@@ -20,7 +20,7 @@ CheesyChart requires iOS 14 and Xcode 11.
 
 This was easy, or? Now you can use CheesyChart in your project! 📈📉
 
-## 📲 Here are some examples
+## 📊 Here are some examples
 
 ## 🪛 Usage
 <p align="right"> Copy this code ⬇️<p>

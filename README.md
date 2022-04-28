@@ -29,9 +29,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 </p>
 
 <p align="center">
- 
 ###### Big thanks to SwiftfulThinking that I can use his crypto app for the last two examples to show how CheesyChart can be iplemented! 🥳
- 
 </p>
 
 ## 🪛 Usage

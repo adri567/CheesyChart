@@ -30,63 +30,64 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
  ```
 
  
-### Setup options
+### Setup options with its standart option
  
-`name: String`
+name: String = ""
  
-data: [Double]
+data: [Double] = []
  
-image: UIImage?
+image: UIImage? = UIImage(systemName: "bitcoinsign.circle.fill")
         
-showChartHeader: Bool
-chartHeaderFontColor: Color
+showChartHeader: Bool = false
  
-chartHeaderColor: Color
+chartHeaderFontColor: Color = .black
  
-showHeaderImage: Bool
+chartHeaderColor: Color = .clear
+ 
+showHeaderImage: Bool = false
         
-chartWidth: Double
+chartWidth: Double = UIScreen.main.bounds.width
  
-chartHeight: Double
+chartHeight: Double = 200
         
-animateChart: Bool
+animateChart: Bool = false
  
-startAnimationAfterAppear
+startAnimationAfterAppear: CGFloat = 0.1
  
-chartAnimationDuration: CGFloat
+chartAnimationDuration: CGFloat = 1.0
         
-chartBackground: Background
+chartBackground: Background = .none
  
-chartBackgroundColor: Color
+chartBackgroundColor: Color = .white
  
-chartBackgroundDividerColor: Color
+chartBackgroundDividerColor: Color = Color(UIColor.lightGray).opacity(0.2)
  
-showYAxiesStats: Bool
+showYAxiesStats: Bool = false
  
-yAxiesStatsColor: Color
+yAxiesStatsColor: Color = .black
         
-chartLineColorOnHigh: Color
+chartLineColorOnHigh: Color = .green
  
-lineChartColorOnLow: Color
+lineChartColorOnLow: Color = .red
  
-chartLineWidth: CGFloat
+chartLineWidth: CGFloat = 2
         
-showShadow1: Bool
+showShadow1: Bool = false
  
-showShadow2: Bool
+showShadow2: Bool = false
  
-showShadow3: Bool
+showShadow3: Bool = false
  
-showShadow4: Bool
+showShadow4: Bool = false
         
-chartPriceLabelColor: Color
+chartPriceLabelColor: Color = .clear
  
-chartPriceLabelFontColor: Color
+chartPriceLabelFontColor: Color = .black
  
-chartPriceIndicatorColor: Color
+chartPriceIndicatorColor: Color = Color(UIColor.lightGray)
  
-chartPriceLabelYAxies: CGFloat
+chartPriceLabelYAxies: CGFloat = 40.0
  
-chartPriceLabelCornerRadius: CGFloat
+chartPriceLabelCornerRadius: CGFloat = 5
  
-chartPriceLabelShadow: Color
+chartPriceLabelShadow: Color = .clear

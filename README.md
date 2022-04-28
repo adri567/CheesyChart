@@ -36,7 +36,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
   import CheesyChart
  ```
  
- ´´´swift
+ ```swift
  @State var value: Int? = 0 // You need a @State var if you want to use the tapPoint to show the current price of the stock or coin
 
  let setup = SetupChart(
@@ -56,9 +56,9 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
         )
  
  CheesyChart(setup: setup, tapPoint: $value)
+
  
-
-
+ 
 ### All setup possibilities with its standard values 🔥
 
  ```swift

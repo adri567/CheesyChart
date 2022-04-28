@@ -16,7 +16,7 @@ CheesyChart requires iOS 14 and Xcode 11.
 
 2️⃣ In the top right corner, paste `https://github.com/adri567/CheesyChart.git` 🧀 (without the cheese emoji 😉) and press Enter.
 
-3️⃣ Choose `CheesyChart` from the list of options ➤ `Add Package`
+3️⃣ Choose `CheesyChart` from the list ➤ `Add Package`
 
 This was easy, or? Now you can use CheesyChart in your project! 📈📉
 

@@ -27,3 +27,6 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
  
 ```swift
   import CheesyChart
+
+ 
+### Styles

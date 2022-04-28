@@ -27,8 +27,11 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 <p align="center">
 <img src="https://user-images.githubusercontent.com/26815443/165816452-2dd5b405-2a4b-4630-a23b-db5a35235937.gif" width="26%"></img>  <img src="https://user-images.githubusercontent.com/26815443/165816470-938d26a0-6950-49c3-951e-793cf3dcb874.gif" width="26%"></img> 
 </p>
+
 <p align="center">
+ 
 ###### Big thanks to SwiftfulThinking that I can use his crypto app for the last two examples to show how CheesyChart can be iplemented! 🥳
+ 
 </p>
 
 ## 🪛 Usage

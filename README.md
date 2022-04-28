@@ -22,9 +22,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 
 ## 📊 Here are some examples
 
-![dark](https://user-images.githubusercontent.com/26815443/165791488-c8d3504b-a9e6-4ce5-9151-7bad0363227e.gif)
-
-![light](https://user-images.githubusercontent.com/26815443/165791311-9a4df04c-019a-4765-be7c-aea10280711b.gif)
+<img src="https://user-images.githubusercontent.com/26815443/165791488-c8d3504b-a9e6-4ce5-9151-7bad0363227e.gif" width="26%"></img> <img src="https://user-images.githubusercontent.com/26815443/165791311-9a4df04c-019a-4765-be7c-aea10280711b.gif" width="26%"></img> 
 
 
 ## 🪛 Usage

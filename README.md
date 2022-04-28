@@ -33,39 +33,60 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 ### Setup options
  
 name: String
+ 
 data: [Double]
+ 
 image: UIImage?
         
 showChartHeader: Bool
 chartHeaderFontColor: Color
+ 
 chartHeaderColor: Color
+ 
 showHeaderImage: Bool
         
 chartWidth: Double
+ 
 chartHeight: Double
         
 animateChart: Bool
+ 
 startAnimationAfterAppear
+ 
 chartAnimationDuration: CGFloat
         
 chartBackground: Background
+ 
 chartBackgroundColor: Color
+ 
 chartBackgroundDividerColor: Color
+ 
 showYAxiesStats: Bool
+ 
 yAxiesStatsColor: Color
         
 chartLineColorOnHigh: Color
+ 
 lineChartColorOnLow: Color
+ 
 chartLineWidth: CGFloat
         
 showShadow1: Bool
+ 
 showShadow2: Bool
+ 
 showShadow3: Bool
+ 
 showShadow4: Bool
         
 chartPriceLabelColor: Color
+ 
 chartPriceLabelFontColor: Color
+ 
 chartPriceIndicatorColor: Color
+ 
 chartPriceLabelYAxies: CGFloat
+ 
 chartPriceLabelCornerRadius: CGFloat
+ 
 chartPriceLabelShadow: Color

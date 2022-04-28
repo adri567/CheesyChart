@@ -30,66 +30,66 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
  ```
 
 
-### Setup options with its standart option
+### Setup with it's standart values
 
  ```swift
-name: String = ""
+name: String = "" // Name of the coin or stock
  
-data: [Double] = []
+data: [Double] = [] // Price data
  
-image: UIImage? = UIImage(systemName: "bitcoinsign.circle.fill")
+image: UIImage? = UIImage(systemName: "bitcoinsign.circle.fill") // Standart image if image is shown
         
-showChartHeader: Bool = false
+showChartHeader: Bool = false // Default chart header
  
-chartHeaderFontColor: Color = .black
+chartHeaderFontColor: Color = .black // Font color of the chart
  
-chartHeaderColor: Color = .clear
+chartHeaderColor: Color = .clear // Whole color of the chart
  
-showHeaderImage: Bool = false
+showHeaderImage: Bool = false // Show header image
         
-chartWidth: Double = UIScreen.main.bounds.width
+chartWidth: Double = UIScreen.main.bounds.width // Width of the chart
  
-chartHeight: Double = 200
+chartHeight: Double = 200 // Height of the chart
         
-animateChart: Bool = false
+animateChart: Bool = false // Line animation (from 0 to 1)
  
-startAnimationAfterAppear: CGFloat = 0.1
+startAnimationAfterAppear: CGFloat = 0.1 // Animation after the appearance of the chart
  
-chartAnimationDuration: CGFloat = 1.0
+chartAnimationDuration: CGFloat = 1.0 // Duration of the animation
         
-chartBackground: Background = .none
+chartBackground: Background = .none // Chart backgrounds (choose between .none, .cb1, .cb2, .cb3, .cb4, .cb5)
  
-chartBackgroundColor: Color = .white
+chartBackgroundColor: Color = .white // Whole background color of the chart
  
-chartBackgroundDividerColor: Color = Color(UIColor.lightGray).opacity(0.2)
+chartBackgroundDividerColor: Color = Color(UIColor.lightGray).opacity(0.2) // X axies divider color
  
-showYAxiesStats: Bool = false
+showYAxiesStats: Bool = false // Price stats on the left across the y axies
  
-yAxiesStatsColor: Color = .black
+yAxiesStatsColor: Color = .black // Color of the stats
         
-chartLineColorOnHigh: Color = .green
+chartLineColorOnHigh: Color = .green // Chart color if the price goes up
  
-lineChartColorOnLow: Color = .red
+lineChartColorOnLow: Color = .red // Chart color if the price goes down
  
-chartLineWidth: CGFloat = 2
+chartLineWidth: CGFloat = 2 // Width of the chart line
         
-showShadow1: Bool = false
+showShadow1: Bool = false // Shadow 1 of the line
  
-showShadow2: Bool = false
+showShadow2: Bool = false // Shadow 2 of the line
  
-showShadow3: Bool = false
+showShadow3: Bool = false // Shadow 3 of the line
  
-showShadow4: Bool = false
+showShadow4: Bool = false // Shadow 4 of the line
         
-chartPriceLabelColor: Color = .clear
+chartPriceLabelColor: Color = .clear // Color of the drag price label
  
-chartPriceLabelFontColor: Color = .black
+chartPriceLabelFontColor: Color = .black // Font color of the drag price label
  
-chartPriceIndicatorColor: Color = Color(UIColor.lightGray)
+chartPriceIndicatorColor: Color = Color(UIColor.lightGray) // Color of the price y axies indicator
  
-chartPriceLabelYAxies: CGFloat = 40.0
+chartPriceLabelYAxies: CGFloat = 40.0 // Position of the price label on the y axies
  
-chartPriceLabelCornerRadius: CGFloat = 5
+chartPriceLabelCornerRadius: CGFloat = 5 // Corner radius of the price label
  
-chartPriceLabelShadow: Color = .clear
+chartPriceLabelShadow: Color = .clear // Shadow of the price label
  

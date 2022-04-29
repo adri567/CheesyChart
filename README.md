@@ -10,11 +10,11 @@ So whether you want to create a simple chart or a more complex one, CheesyChart 
 
 ## 🛠 Installation
 
-CheesyChart requires iOS 14 and Xcode 11.
+CheesyChart requires iOS 14 and Xcode 12.
 
-1️⃣ In XCode go to `File` ➤ `Add Packages...`
+1️⃣ In Xcode go to `File` ➤ `Add Packages...`
 
-2️⃣ In the top right corner, paste `https://github.com/adri567/CheesyChart.git` 🧀 (without the cheese emoji 😉) and press Enter.
+2️⃣ In the top right corner, paste `https://github.com/adri567/CheesyChart.git` 🧀 and press Enter.
 
 3️⃣ Choose `CheesyChart` from the list ➤ `Add Package`
 
@@ -28,17 +28,64 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 <img src="https://user-images.githubusercontent.com/26815443/165816452-2dd5b405-2a4b-4630-a23b-db5a35235937.gif" width="26%"></img>  <img src="https://user-images.githubusercontent.com/26815443/165816470-938d26a0-6950-49c3-951e-793cf3dcb874.gif" width="26%"></img> 
 </p>
 
-###### Big thanks to SwiftfulThinking that I can use his crypto app for the last two examples to show how CheesyChart can be iplemented! 🥳
+###### Thanks Nick for letting me use your crypto app as a showcase for CheesyChart! 💯
+
 
 ## 🪛 Usage
 <p align="right"> Copy this code ⬇️<p>
  
 ```swift
-  import CheesyChart
+import CheesyChart
  ```
+ 
+ ### Example 1
+ ```swift
+ /// You need a @State var if you want to use the tapPoint to show the current price of the stock or coin in a extra TextView
+ @State var value: Int? = 0
 
-
-### All setup possibilities with its standard values 🔥
+ let setup = SetupChart(
+            name: (stock or coin name),
+            data:  (price data),
+            image: UIImage(named: "Image"),
+            chartHeight: 250,
+            animateChart: true,
+            chartBackground: .cb5,
+            chartBackgroundColor: Color(UIColor.systemGroupedBackground).opacity(0.3),
+            showYAxiesStats: true,
+            yAxiesStatsColor: .black,
+            showShadow1: true,
+            showShadow2: true,
+            chartPriceLabelColor: Color(UIColor.systemGroupedBackground).opacity(0.3),
+            chartPriceLabelFontColor: .black
+        )
+ 
+ CheesyChart(setup: setup, tapPoint: $value)
+```
+ ### Example 2
+ 
+ ```swift
+ let setup = SetupChart(
+                data: data,
+                animateChart: true,
+                startAnimationAfterAppear: 0.2,
+                chartBackground: .cb2,
+                chartBackgroundColor: Color.theme.background,
+                showYAxiesStats: true,
+                yAxiesStatsColor: Color.theme.accent,
+                showShadow1: true,
+                showShadow2: true,
+                showShadow3: true,
+                showShadow4: true,
+                chartPriceLabelColor: Color.theme.background,
+                chartPriceLabelFontColor: Color.theme.accent,
+                chartPriceLabelShadow: Color.theme.accent
+            )
+ 
+CheesyChart(setup: setup)
+```
+ 
+ 
+### All setup possibilities with it's standard values 🔥
 
  ```swift
 name: String = "" // Name of the coin or stock
@@ -61,7 +108,7 @@ chartHeight: Double = 200 // Height of the chart
         
 animateChart: Bool = false // Line animation (from 0 to 1)
  
-startAnimationAfterAppear: CGFloat = 0.1 // Animation after the appearance of the chart
+startAnimationAfterAppeariance: CGFloat = 0.1 // Animation after the appearance of the chart
  
 chartAnimationDuration: CGFloat = 1.0 // Duration of the animation
         
@@ -74,6 +121,8 @@ chartBackgroundDividerColor: Color = Color(UIColor.lightGray).opacity(0.2) // X 
 showYAxiesStats: Bool = false // Price stats on the left across the y axies
  
 yAxiesStatsColor: Color = .black // Color of the stats
+
+yAxiesStatsAlignment: YAxiesAlignment = .leading // Position of the y axies stats
         
 chartLineColorOnHigh: Color = .green // Chart color if the price goes up
  
@@ -100,4 +149,4 @@ chartPriceLabelYAxies: CGFloat = 40.0 // Position of the price label on the y ax
 chartPriceLabelCornerRadius: CGFloat = 5 // Corner radius of the price label
  
 chartPriceLabelShadow: Color = .clear // Shadow of the price label
- 
+

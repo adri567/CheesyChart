@@ -35,7 +35,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 <p align="right"> Copy this code ⬇️<p>
  
 ```swift
-  import CheesyChart
+import CheesyChart
  ```
  
  ### Example 1

@@ -27,6 +27,7 @@ public struct ChartView: View {
     // MARK: - Body
     public var body: some View {
         GeometryReader { geometry in
+            
             ChartPriceLabelView(setup: setup, geometry: geometry)
             
             Path { path in

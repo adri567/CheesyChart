@@ -24,7 +24,7 @@ public class SetupChart {
     public var chartHeight: Double
     
     public var animateChart: Bool
-    public var startAnimationAfterAppear: CGFloat
+    public var startAnimationAfterAppeariance: CGFloat
     public var chartAnimationDuration: CGFloat
     
     public var chartBackground: Background
@@ -32,6 +32,7 @@ public class SetupChart {
     public var chartBackgroundDividerColor: Color
     public var showYAxiesStats: Bool
     public var yAxiesStatsColor: Color
+    public var yAxiesStatsAlignment: YAxiesAlignment
     
     public var chartLineColorOnHigh: Color
     public var lineChartColorOnLow: Color
@@ -66,7 +67,7 @@ public class SetupChart {
         chartHeight: Double = 200,
         
         animateChart: Bool = false,
-        startAnimationAfterAppear: CGFloat = 0.1,
+        startAnimationAfterAppeariance: CGFloat = 0.1,
         chartAnimationDuration: CGFloat = 1.0,
         
         chartBackground: Background = .none,
@@ -74,6 +75,7 @@ public class SetupChart {
         chartBackgroundDividerColor: Color = Color(UIColor.lightGray).opacity(0.2),
         showYAxiesStats: Bool = false,
         yAxiesStatsColor: Color = .black,
+        yAxiesStatsAlignment: YAxiesAlignment = .leading,
         
         chartLineColorOnHigh: Color = .green,
         lineChartColorOnLow: Color = .red,
@@ -104,7 +106,7 @@ public class SetupChart {
         self.chartHeight = chartHeight
         
         self.animateChart = animateChart
-        self.startAnimationAfterAppear = startAnimationAfterAppear
+        self.startAnimationAfterAppeariance = startAnimationAfterAppeariance
         self.chartAnimationDuration = chartAnimationDuration
         self.chartBackground = chartBackground
         
@@ -112,6 +114,7 @@ public class SetupChart {
         self.chartBackgroundDividerColor = chartBackgroundDividerColor
         self.showYAxiesStats = showYAxiesStats
         self.yAxiesStatsColor = yAxiesStatsColor
+        self.yAxiesStatsAlignment = yAxiesStatsAlignment
         
         self.chartLineColorOnHigh = chartLineColorOnHigh
         self.lineChartColorOnLow = lineChartColorOnLow

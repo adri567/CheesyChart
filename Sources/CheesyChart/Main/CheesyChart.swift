@@ -14,14 +14,27 @@ public struct CheesyChart: View {
     @StateObject var vm: CheesyChartViewModel = CheesyChartViewModel()
     @Binding private var tapPoint: Int?
     private let dCount: Int // Count of total price  data
+    private var alignment: YAxiesAlignment
     var setup: SetupChart
+    
+    @State var tap: Bool = false
+    
+    @GestureState private var isPressed: Bool = false
+    private var drag: GestureStateGesture<DragGesture, Bool> {
+        return DragGesture(minimumDistance: 0)
+            .updating($isPressed) { value, gestureState, transaction in
+                handleGesture(value: value)
+                gestureState = true
+            }
+    }
     
     /// Standart init if you don't want to use the custom header
     public init(setup: SetupChart) {
         self.setup = setup
         
-        dCount = setup.data.count
         _tapPoint = Binding.constant(nil)
+        dCount = setup.data.count
+        alignment = setup.yAxiesStatsAlignment
     }
     
     /// Prefered init if you are using a custom header. In this init you can pass a binding to track the price outside of the package while draging with the finger on the chart
@@ -29,6 +42,7 @@ public struct CheesyChart: View {
         self.setup = setup
         _tapPoint = tapPoint ?? Binding.constant(nil)
         dCount = setup.data.count
+        alignment = setup.yAxiesStatsAlignment
     }
     
     // MARK: - Body
@@ -43,17 +57,23 @@ public struct CheesyChart: View {
                 .background(ChartBackgroundView(setup: setup))
                 .overlay(
                     ChartYAxiesStatsView(setup: setup)
-                    ,alignment: .leading
+                    ,alignment: alignment == .leading ? .leading : .trailing
                 )
-                .gesture(
-                    DragGesture(minimumDistance: 0)
-                        .onChanged(handleGesture)
-                        .onEnded({ value in
-                            vm.hide.toggle()
-                        })
-                )
+                .gesture(drag)
+                .onChange(of: isPressed, perform: { pressed in
+                    if !isPressed && tap == true {
+                        vm.hide.toggle()
+                    }
+                })
+//                .gesture(
+//                    DragGesture(minimumDistance: 0)
+//                        .onChanged(handleGesture)
+//                        .onEnded({ value in
+//                            vm.hide.toggle()
+//                        })
+//                )
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + setup.startAnimationAfterAppear) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + setup.startAnimationAfterAppeariance) {
                         withAnimation(.linear(duration: setup.chartAnimationDuration)) {
                             vm.animationPercentage = 1.0
                         }
@@ -73,7 +93,9 @@ public struct CheesyChart: View {
         
         /// If we are using a custom header and we are passing a tapPoint binding, we assign vm.point to tapPoint to show the current drag price externally
         if tapPoint != nil {
-            tapPoint = vm.point
+            DispatchQueue.main.async {
+                tapPoint = vm.point
+            }
         }
     }
 }

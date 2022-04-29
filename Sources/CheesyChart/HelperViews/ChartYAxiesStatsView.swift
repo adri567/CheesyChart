@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+/// Position of the y axies stats
+public enum YAxiesAlignment {
+    
+    case leading
+    case trailing
+}
+
 struct ChartYAxiesStatsView: View {
     
     var setup: SetupChart
@@ -121,7 +128,7 @@ struct ChartYAxiesStatsView: View {
         if setup.showYAxiesStats {
             Text(price.formattedWithAbbreviations())
                 .foregroundColor(setup.yAxiesStatsColor)
-                .padding(.leading, 4)
+                .padding(.horizontal, 4)
                 .font(.footnote)
         } else {
             EmptyView()

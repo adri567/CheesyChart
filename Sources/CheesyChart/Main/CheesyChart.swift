@@ -16,18 +16,7 @@ public struct CheesyChart: View {
     private let dCount: Int // Count of total price  data
     private var alignment: YAxiesAlignment
     var setup: SetupChart
-    
-    @State var tap: Bool = false
-    
-    @GestureState private var isPressed: Bool = false
-    private var drag: GestureStateGesture<DragGesture, Bool> {
-        return DragGesture(minimumDistance: 0)
-            .updating($isPressed) { value, gestureState, transaction in
-                handleGesture(value: value)
-                gestureState = true
-            }
-    }
-    
+        
     /// Standart init if you don't want to use the custom header
     public init(setup: SetupChart) {
         self.setup = setup
@@ -59,19 +48,13 @@ public struct CheesyChart: View {
                     ChartYAxiesStatsView(setup: setup)
                     ,alignment: alignment == .leading ? .leading : .trailing
                 )
-                .gesture(drag)
-                .onChange(of: isPressed, perform: { pressed in
-                    if !isPressed && tap == true {
-                        vm.hide.toggle()
-                    }
-                })
-//                .gesture(
-//                    DragGesture(minimumDistance: 0)
-//                        .onChanged(handleGesture)
-//                        .onEnded({ value in
-//                            vm.hide.toggle()
-//                        })
-//                )
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged(handleGesture)
+                        .onEnded({ value in
+                            vm.hide.toggle()
+                        })
+                )
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + setup.startAnimationAfterAppeariance) {
                         withAnimation(.linear(duration: setup.chartAnimationDuration)) {
@@ -81,6 +64,10 @@ public struct CheesyChart: View {
                 }
         }
         .environmentObject(vm)
+    }
+    
+    private func initVars() {
+        
     }
     
     private func handleGesture(value: DragGesture.Value) {
@@ -93,9 +80,7 @@ public struct CheesyChart: View {
         
         /// If we are using a custom header and we are passing a tapPoint binding, we assign vm.point to tapPoint to show the current drag price externally
         if tapPoint != nil {
-            DispatchQueue.main.async {
-                tapPoint = vm.point
-            }
+            tapPoint = vm.point
         }
     }
 }

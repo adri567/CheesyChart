@@ -108,7 +108,7 @@ chartHeight: Double = 200 // Height of the chart
         
 animateChart: Bool = false // Line animation (from 0 to 1)
  
-startAnimationAfterAppear: CGFloat = 0.1 // Animation after the appearance of the chart
+startAnimationAfterAppeariance: CGFloat = 0.1 // Animation after the appearance of the chart
  
 chartAnimationDuration: CGFloat = 1.0 // Duration of the animation
         
@@ -121,6 +121,8 @@ chartBackgroundDividerColor: Color = Color(UIColor.lightGray).opacity(0.2) // X 
 showYAxiesStats: Bool = false // Price stats on the left across the y axies
  
 yAxiesStatsColor: Color = .black // Color of the stats
+
+yAxiesStatsAlignment: YAxiesAlignment = .leading // Position of the y axies stats
         
 chartLineColorOnHigh: Color = .green // Chart color if the price goes up
  

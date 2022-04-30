@@ -68,18 +68,20 @@ public struct CheesyChart: View {
     }
     
     private func handleGesture(value: DragGesture.Value) {
-        if value.location.x > 0 {
-            vm.hide = true
-            vm.touchLocation = value.location
-            /// Calculates the value for the price depens on the fingers drag position of the chart
-            let value = setup.chartWidth / CGFloat(dCount)
+        vm.hide = true
+        vm.touchLocation = value.location
+        /// Calculates each width of one price
+        let priceWidth = setup.chartWidth / CGFloat(dCount)
+        /// Converts price width to the dragging value
+        let dragVal = Int(vm.touchLocation.x / priceWidth)
+        
+        if dragVal.isPositiv() {
             /// dCount - 1 is necessary, because we need one less than the total data count to not get a Index Out Of Range.
-            vm.point = Int(vm.touchLocation.x / value) > dCount - 1 ? dCount - 1 : Int(vm.touchLocation.x / value)
-            
-            /// If we are using a custom header and we are passing a tapPoint binding, we assign vm.point to tapPoint to show the current drag price externally
-            if tapPoint != nil {
-                tapPoint = vm.point
-            }
+            vm.point = dragVal > dCount - 1 ? dCount - 1 : dragVal
+        }
+        /// If we are using a custom header and we are passing a tapPoint binding, we assign vm.point to tapPoint to show the current drag price externally
+        if tapPoint != nil {
+            tapPoint = vm.point
         }
     }
 }

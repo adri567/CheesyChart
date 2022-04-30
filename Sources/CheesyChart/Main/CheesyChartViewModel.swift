@@ -10,11 +10,17 @@ import SwiftUI
 protocol CheesyChartViewProtocol {
     
     /// Calculates the border that the PriceLabel has a distance to the leading and trailing border
-    /// - Parameter xLocation: X Location of the draged label
-    /// - Parameter geoetry: Geometry of the chart where the label is located
+    /// - Parameters:
+    ///  -  xLocation: X location of the draged label
+    ///  - geoetry: Geometry of the chart where the label is located
     /// - Returns: Returns the distance to the border
     func calculatePriceLabelBorder(xLocation: CGFloat, geometry: GeometryProxy, textWidth: Double) -> CGFloat
     
+    /// Calculates the border to the indicator that it stays in the charts view
+    /// - Parameters:
+    ///    - xLocation: X location of the indicator
+    ///    - geometry: Geometry of the chart where the indicator is located
+    /// - Returns: Returns the x location within the chart
     func calculateIndicatorBorder(xLocation: CGFloat, geometry: GeometryProxy) -> CGFloat
 }
 

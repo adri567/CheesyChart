@@ -21,13 +21,12 @@ public struct ChartView: View {
         
         /// Changes the line color depends on share prices
         let priceChange = (setup.data.last ?? 0) - (setup.data.first ?? 0)
-        lineColor = priceChange >= 0 ? setup.chartLineColorOnHigh : setup.lineChartColorOnLow
+        lineColor = priceChange >= 0 ? setup.chartLineColorOnHigh : setup.chartLineColorOnLow
     }
     
     // MARK: - Body
     public var body: some View {
         GeometryReader { geometry in
-            
             ChartPriceLabelView(setup: setup, geometry: geometry)
             
             Path { path in

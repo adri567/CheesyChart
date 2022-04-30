@@ -31,7 +31,7 @@ public struct ChartPriceLabelView: View {
             .background(setup.chartPriceLabelColor)
             .cornerRadius(setup.chartPriceLabelCornerRadius)
             .position(
-                x: vm.calculateBorder(xLocation: vm.touchLocation.x, geometry: geometry, textWidth: textWidth),
+                x: vm.calculatePriceLabelBorder(xLocation: vm.touchLocation.x, geometry: geometry, textWidth: textWidth),
                 y: setup.chartPriceLabelYAxies
             )
             .shadow(color: setup.chartPriceLabelShadow, radius: 5, x: 0.0, y: 0)
@@ -39,7 +39,10 @@ public struct ChartPriceLabelView: View {
                 Rectangle()
                     .fill(setup.chartPriceIndicatorColor)
                     .frame(width: 1, height: geometry.size.height)
-                    .position(x: vm.touchLocation.x, y: geometry.size.height / 2)
+                    .position(
+                        x: vm.calculateIndicatorBorder(xLocation: vm.touchLocation.x, geometry: geometry),
+                        y: geometry.size.height / 2
+                    )
             )
             .opacity(vm.hide ? 1 : 0)
             .zIndex(1)

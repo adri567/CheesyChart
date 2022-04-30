@@ -16,7 +16,7 @@ public struct CheesyChart: View {
     private let dCount: Int // Count of total price  data
     private var alignment: YAxiesAlignment
     var setup: SetupChart
-        
+    
     /// Standart init if you don't want to use the custom header
     public init(setup: SetupChart) {
         self.setup = setup
@@ -40,6 +40,7 @@ public struct CheesyChart: View {
             if setup.showChartHeader {
                 ChartHeader(setup: setup)
             }
+            
             
             ChartView(setup: setup)
                 .frame(width: setup.chartWidth, height: setup.chartHeight)
@@ -66,21 +67,19 @@ public struct CheesyChart: View {
         .environmentObject(vm)
     }
     
-    private func initVars() {
-        
-    }
-    
     private func handleGesture(value: DragGesture.Value) {
-        vm.hide = true
-        vm.touchLocation = value.location
-        /// Calculates the value for the price depens on the fingers drag position of the chart
-        let value = UIScreen.main.bounds.size.width / CGFloat(dCount)
-        /// dCount - 1 is necessary, because we need one less than the total data count to not get a Index Out Of Range.
-        vm.point = Int(vm.touchLocation.x / value) > dCount - 1 ? dCount - 1 : Int(vm.touchLocation.x / value)
-        
-        /// If we are using a custom header and we are passing a tapPoint binding, we assign vm.point to tapPoint to show the current drag price externally
-        if tapPoint != nil {
-            tapPoint = vm.point
+        if value.location.x > 0 {
+            vm.hide = true
+            vm.touchLocation = value.location
+            /// Calculates the value for the price depens on the fingers drag position of the chart
+            let value = setup.chartWidth / CGFloat(dCount)
+            /// dCount - 1 is necessary, because we need one less than the total data count to not get a Index Out Of Range.
+            vm.point = Int(vm.touchLocation.x / value) > dCount - 1 ? dCount - 1 : Int(vm.touchLocation.x / value)
+            
+            /// If we are using a custom header and we are passing a tapPoint binding, we assign vm.point to tapPoint to show the current drag price externally
+            if tapPoint != nil {
+                tapPoint = vm.point
+            }
         }
     }
 }

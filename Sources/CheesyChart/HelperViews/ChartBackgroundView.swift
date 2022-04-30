@@ -41,7 +41,6 @@ struct ChartBackgroundView: View {
             }
         }
         .background(setup.chartBackgroundColor)
-        .frame(maxWidth: setup.chartWidth, maxHeight: setup.chartHeight)
     }
     
     private var background0: some View {

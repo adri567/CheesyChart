@@ -35,7 +35,7 @@ public class SetupChart {
     public var yAxiesStatsAlignment: YAxiesAlignment
     
     public var chartLineColorOnHigh: Color
-    public var lineChartColorOnLow: Color
+    public var chartLineColorOnLow: Color
     public var chartLineWidth: CGFloat
     
     public var showShadow1: Bool
@@ -63,7 +63,7 @@ public class SetupChart {
         chartHeaderColor: Color = .clear,
         showHeaderImage: Bool = false,
         
-        chartWidth: Double = UIScreen.main.bounds.width,
+        chartWidth: Double = UIScreen.main.bounds.size.width,
         chartHeight: Double = 200,
         
         animateChart: Bool = false,
@@ -78,7 +78,7 @@ public class SetupChart {
         yAxiesStatsAlignment: YAxiesAlignment = .leading,
         
         chartLineColorOnHigh: Color = .green,
-        lineChartColorOnLow: Color = .red,
+        chartLineColorOnLow: Color = .red,
         chartLineWidth: CGFloat = 2,
         
         showShadow1: Bool = false,
@@ -117,7 +117,7 @@ public class SetupChart {
         self.yAxiesStatsAlignment = yAxiesStatsAlignment
         
         self.chartLineColorOnHigh = chartLineColorOnHigh
-        self.lineChartColorOnLow = lineChartColorOnLow
+        self.chartLineColorOnLow = chartLineColorOnLow
         self.chartLineWidth = chartLineWidth
         
         self.showShadow1 = showShadow1

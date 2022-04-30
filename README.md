@@ -31,8 +31,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 ###### Thanks Nick for letting me use your crypto app as a showcase for CheesyChart! 💯
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/26815443/166107899-f9468d5e-5e65-405a-9744-9f183dbf5963.gif
-" width="26%">
+<img src="https://user-images.githubusercontent.com/26815443/166107899-f9468d5e-5e65-405a-9744-9f183dbf5963.gif" width="26%">
 
 
 ## 🪛 Usage
@@ -130,7 +129,7 @@ yAxiesStatsAlignment: YAxiesAlignment = .leading // Position of the y axies stat
         
 chartLineColorOnHigh: Color = .green // Chart color if the price goes up
  
-lineChartColorOnLow: Color = .red // Chart color if the price goes down
+chartLineColorOnLow: Color = .red // Chart color if the price goes down
  
 chartLineWidth: CGFloat = 2 // Width of the chart line
         

@@ -1,6 +1,6 @@
 //
 //  ChartPriceLabelView.swift
-//  
+//
 //
 //  Created by Adrian Suthold on 21.04.22.
 //
@@ -25,9 +25,15 @@ public struct ChartPriceLabelView: View {
             .foregroundColor(setup.chartPriceLabelFontColor)
             .background(
                 GeometryReader { textGeometry in
-                    makeView(geometry: textGeometry)
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(maxWidth: .infinity)
+                        .getTextWidth(textGeometry.size.width)
                 }
             )
+            .onPreferenceChange(PriceLabelPreferenceKey.self, perform: { value in
+                textWidth = value
+            })
             .background(setup.chartPriceLabelColor)
             .cornerRadius(setup.chartPriceLabelCornerRadius)
             .position(
@@ -52,16 +58,6 @@ public struct ChartPriceLabelView: View {
     /// - Returns: Formatted price as a String
     private func checkInput() -> String {
         return vm.point > setup.data.count ? "" : setup.data[vm.point].asCurrencyWithTwoDecimals()
-    }
-    
-    /// Gives use the geometry of a text. In this case we are asign the geometry.size.width to our textWidth variable to get the width for further using in the calculateBorder() method.
-    /// - Parameter geometry: Geometry of the Text
-    /// - Returns: Rectangle View that is in the background of our Text
-    private func makeView(geometry: GeometryProxy) -> some View {
-        DispatchQueue.main.async {
-            self.textWidth = geometry.size.width
-        }
-        return Rectangle().fill(.clear)
     }
 }
 

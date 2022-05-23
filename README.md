@@ -24,8 +24,9 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 <p align="center">
 <img src="https://user-images.githubusercontent.com/26815443/165814874-57835847-cd67-4e41-895e-f53a496a3b8c.gif" width="50%"></img><img src="https://user-images.githubusercontent.com/26815443/165814801-2ddf8808-f218-4c0f-a1e7-72c296ce6ab9.gif" width="50%"></img> 
 </p>
+
 <p align="center">
-<img src="https://user-images.githubusercontent.com/26815443/165816452-2dd5b405-2a4b-4630-a23b-db5a35235937.gif" width="30%"></img><img src="https://user-images.githubusercontent.com/26815443/165816470-938d26a0-6950-49c3-951e-793cf3dcb874.gif" width="30%"></img> 
+<img src="https://user-images.githubusercontent.com/26815443/165816452-2dd5b405-2a4b-4630-a23b-db5a35235937.gif" width="20%"></img><img src="https://user-images.githubusercontent.com/26815443/165816470-938d26a0-6950-49c3-951e-793cf3dcb874.gif" width="20%"></img> 
 </p>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/26815443/166107899-f9468d5e-5e65-405a-9744-9f183dbf5963.gif" width="52%">

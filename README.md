@@ -29,7 +29,7 @@ This was easy, or? Now you can use CheesyChart in your project! 📈📉
 </p>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/26815443/166107899-f9468d5e-5e65-405a-9744-9f183dbf5963.gif" width="52%">
-
+</p>
 
 ## 🪛 Usage
 <p align="right"> Copy this code ⬇️<p>

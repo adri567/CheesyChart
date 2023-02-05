@@ -14,6 +14,8 @@ public class SetupChart {
     public var name: String
     public var data: [Double]
     public var currencyIdentifier: String
+    public var forCurrency: Bool
+    public var label: String
     public var image: UIImage?
     
     public var showChartHeader: Bool
@@ -58,6 +60,8 @@ public class SetupChart {
         name: String = "",
         data: [Double] = [],
         currencyIdentifier: String = "en_US",
+        forCurrency: Bool = true,
+        label: String = "",
         image: UIImage? = UIImage(systemName: "bitcoinsign.circle.fill"),
         
         showChartHeader: Bool = false,
@@ -98,6 +102,8 @@ public class SetupChart {
         self.name = name
         self.data = data
         self.currencyIdentifier = currencyIdentifier
+        self.forCurrency = forCurrency
+        self.label = label
         self.image = image
         
         self.showChartHeader = showChartHeader

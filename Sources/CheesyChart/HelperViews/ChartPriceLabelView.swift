@@ -57,6 +57,9 @@ public struct ChartPriceLabelView: View {
     /// Only nesessary if we are using a custom view with a binding to track the draged label price. This is important if the user creates multiple buttons to switch different chart data. It could happen that some data has more chart data. If so the app crashes. To avoid it we are checking if the vm.point is higher that the chart data count. If yes, we asign a blank String otherwise the normal price.
     /// - Returns: Formatted price as a String
     private func checkInput() -> String {
+        if !setup.forCurrency {
+            return vm.point > setup.data.count ? "" : "\(setup.data[vm.point].twoDecimals())" + setup.label
+        }
         return vm.point > setup.data.count ? "" : setup.data[vm.point].asCurrencyWithTwoDecimals(currencyIdentifier: setup.currencyIdentifier)
     }
 }

@@ -10,6 +10,18 @@ import Foundation
 /// In this extension we extend Double with extra methods
 extension Double {
     
+    private var decimalFormatter2: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }
+    
+    func twoDecimals() -> String {
+        let number = NSNumber(value: self)
+        return decimalFormatter2.string(from: number) ?? ""
+    }
+    
     /// Converts a Double into a Currency with 2 decimal places
     /// ```
     ///   Convert 1234.56 to $1,234.56

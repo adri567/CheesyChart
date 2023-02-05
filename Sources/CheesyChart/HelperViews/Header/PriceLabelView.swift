@@ -21,6 +21,13 @@ struct PriceLabelView: View {
             .foregroundColor(setup.chartHeaderFontColor)
             .font(.footnote)
     }
+    
+    private func currencyOrLabel() -> String {
+        if !setup.forCurrency {
+            return "\(setup.data[vm.point].twoDecimals())" + setup.label
+        }
+        return setup.data[vm.point].asCurrencyWithTwoDecimals(currencyIdentifier: setup.currencyIdentifier)
+    }
 }
 
 struct PriceLabelView_Previews: PreviewProvider {

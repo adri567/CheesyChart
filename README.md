@@ -96,6 +96,10 @@ data: [Double] = [] // Price data
  
 currencyIdentifier: String = "en_US" // Default is USD. For more information: https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
  
+forCurrency: Bool = true // Default is set to a currency chart
+ 
+label: String = "" // Is forCurrency = false, you can use your own ending
+ 
 image: UIImage? = UIImage(systemName: "bitcoinsign.circle.fill") // Standart image if image is shown
         
 showChartHeader: Bool = false // Default chart header

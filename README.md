@@ -94,6 +94,8 @@ name: String = "" // Name of the coin or stock
  
 data: [Double] = [] // Price data
  
+currencyIdentifier: String = "en_US" // Default is USD. For more information: https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
+ 
 image: UIImage? = UIImage(systemName: "bitcoinsign.circle.fill") // Standart image if image is shown
         
 showChartHeader: Bool = false // Default chart header

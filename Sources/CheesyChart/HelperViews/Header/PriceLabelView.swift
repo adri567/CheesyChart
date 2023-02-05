@@ -17,7 +17,7 @@ struct PriceLabelView: View {
     
     // MARK: - Body
     var body: some View {
-        Text(setup.data[vm.point].asCurrencyWithTwoDecimals())
+        Text(setup.data[vm.point].asCurrencyWithTwoDecimals(currencyIdentifier: setup.currencyIdentifier))
             .foregroundColor(setup.chartHeaderFontColor)
             .font(.footnote)
     }

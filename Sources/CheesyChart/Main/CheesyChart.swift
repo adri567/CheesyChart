@@ -68,6 +68,7 @@ public struct CheesyChart: View {
     }
     
     private func handleGesture(value: DragGesture.Value) {
+        print(value.location.x)
         vm.hide = true
         vm.touchLocation = value.location
         /// Calculates each width of one price

@@ -14,10 +14,11 @@ extension Double {
     /// ```
     ///   Convert 1234.56 to $1,234.56
     /// ```
-    private var currencyFormatter: NumberFormatter {
+    private func currencyFormatter(currencyIdentifier: String) -> NumberFormatter {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: currencyIdentifier)
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
         return formatter
@@ -27,9 +28,9 @@ extension Double {
     /// ```
     ///   Convert 1234.56 to "$1,234.56"
     /// ```
-    func asCurrencyWithTwoDecimals() -> String {
+    func asCurrencyWithTwoDecimals(currencyIdentifier: String) -> String {
         let number = NSNumber(value: self)
-        return currencyFormatter.string(from: number) ?? "$0.00"
+        return currencyFormatter(currencyIdentifier: currencyIdentifier).string(from: number) ?? "$0.00"
     }
     
     /// Converts a Double into string representation

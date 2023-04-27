@@ -160,5 +160,3 @@ chartPriceLabelCornerRadius: CGFloat = 5 // Corner radius of the price label
  
 chartPriceLabelShadow: Color = .clear // Shadow of the price label
 ```
-
- ###### Thanks Nick for letting me use your crypto app as a showcase for CheesyChart! 💯
